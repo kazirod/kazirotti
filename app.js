@@ -144,7 +144,8 @@ function initHeadingFill() {
     const cs = getComputedStyle(h);
     const from = hex(cs.getPropertyValue('--fill-from'));
     const to = hex(cs.getPropertyValue('--fill-to'));
-    const words = splitWords(h, { direct: true }); // подпись внутри вложенного <span> (KIA Cerato) не трогаем
+    // слова из текста самого заголовка и из вложенных элементов с data-fill; остальные вложенные (серая подпись) не красим
+    const words = [h, ...h.querySelectorAll('[data-fill]')].flatMap((r) => splitWords(r, { direct: true }));
     return from && to && words.length ? { h, words, from, to, last: [] } : null;
   }).filter(Boolean);
 
