@@ -67,19 +67,6 @@ if (inTelegram) {
   tg.setBackgroundColor(page);
   if (tg.isVersionAtLeast('7.10')) tg.setBottomBarColor(page);
   if (tg.isVersionAtLeast('7.7')) tg.disableVerticalSwipes(); // длинная страница не закрывается при прокрутке вверх
-
-  // Нижняя кнопка Telegram «Записаться» видна, когда на экране нет других кнопок записи
-  const main = tg.MainButton;
-  main.setParams({ text: 'Записаться на первое занятие', color: '#141414', text_color: '#FFFFFF' });
-  main.onClick(() => openUrl(tgLink(MESSAGES.first)));
-
-  const bookButtons = document.querySelectorAll('[data-book], [data-pack]');
-  const visible = new Set();
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((en) => (en.isIntersecting ? visible.add(en.target) : visible.delete(en.target)));
-    visible.size ? main.hide() : main.show();
-  });
-  bookButtons.forEach((b) => io.observe(b));
 }
 
 // ---------- Машинка на маршруте А → Б ----------
