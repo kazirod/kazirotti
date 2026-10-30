@@ -92,3 +92,22 @@ if (route && !reduceMotion && 'IntersectionObserver' in window) {
   }, { threshold: 0.6 });
   ro.observe(route);
 }
+
+// ---------- Главный заголовок всегда в три строки ----------
+// Если строка не помещается (другой шрифт, узкий экран) — уменьшаем кегль, пока не влезет.
+const heroTitle = document.querySelector('.hero__title');
+function fitHeroTitle() {
+  if (!heroTitle) return;
+  heroTitle.style.fontSize = '';
+  heroTitle.style.lineHeight = '';
+  let size = 40;
+  const fits = () => [...heroTitle.children].every((s) => s.scrollWidth <= heroTitle.clientWidth);
+  while (!fits() && size > 24) {
+    size -= 1;
+    heroTitle.style.fontSize = size + 'px';
+    heroTitle.style.lineHeight = Math.round(size * 1.2) + 'px';
+  }
+}
+fitHeroTitle();
+window.addEventListener('resize', fitHeroTitle);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeroTitle);
