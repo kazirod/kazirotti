@@ -153,7 +153,7 @@ function initHeadingFill() {
   function update() {
     queued = false;
     const vh = window.innerHeight;
-    const start = vh * 0.92, end = vh * 0.5; // заливка идёт, пока заголовок поднимается от 92% до 50% высоты экрана
+    const start = vh * 0.8, end = vh * 0.4; // заливка идёт, пока заголовок поднимается от 80% до 40% высоты экрана
     const atEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 4;
     items.forEach((it) => {
       const top = it.h.getBoundingClientRect().top;
