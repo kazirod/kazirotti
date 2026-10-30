@@ -275,8 +275,16 @@ a { color: inherit; text-decoration: none; }
   .route.is-animated .route__done, .route.is-animated .route__car { animation: none; }
 }
 
-/* ---------- Появление заголовка и блоков (включает app.js; при reduced-motion не включается) ---------- */
-.w--in { display: inline-block; animation: word-in 560ms var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 80ms); }
-@keyframes word-in { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
-.reveal { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); transition-delay: var(--d, 0ms); }
-.reveal.is-in { opacity: 1; transform: none; }
+/* ---------- Появление заголовка и блоков (класс .anim ставится в <head>, .anim-ready — из app.js; при reduced-motion не включается) ---------- */
+/* Первый экран скрыт с первого кадра, чтобы не мигал до старта анимации */
+.anim:not(.anim-ready) .hero__title,
+.anim:not(.anim-ready) .hero .stack-16 > p,
+.anim:not(.anim-ready) .hero > :not(.stack-16) { opacity: 0; }
+
+.w--in { display: inline-block; animation: word-in 700ms var(--ease-out) both; animation-delay: calc(var(--i) * 80ms + 80ms); }
+@keyframes word-in { from { opacity: 0; transform: translateY(0.3em); } to { opacity: 1; transform: none; } }
+
+/* Переход задаём только на конечном состоянии: добавление .reveal мгновенное, плавным становится именно появление */
+.reveal { opacity: 0; transform: translateY(16px); }
+.reveal.is-in { opacity: 1; transform: none; transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); transition-delay: var(--d, 0ms); }
+.hero .reveal.is-in { transition-duration: 700ms; }

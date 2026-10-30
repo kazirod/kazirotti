@@ -10,6 +10,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- SF Pro Rounded есть на iOS/macOS (ui-rounded). На Android и Windows — похожий скруглённый Nunito -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap">
+  <script>
+    /* Анимации включены: прячем первый экран до старта (без вспышки). Если app.js не запустился — через 2,5 с всё показываем. */
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('anim');
+      setTimeout(function () { document.documentElement.classList.add('anim-ready'); }, 2500);
+    }
+  </script>
   <link rel="stylesheet" href="styles.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>

@@ -190,25 +190,31 @@ function initReveal() {
     if (el.tagName === 'UL' && el.getAttribute('role') === 'list') list.push(...el.children); // карточки списка — по одной
     else list.push(el);
   });
-  const base = (el) => (el.closest('.hero') ? 300 : 0); // на первом экране ждём слова заголовка
+  const base = (el) => (el.closest('.hero') ? 400 : 0); // на первом экране ждём слова заголовка
   const done = (el) => { el.classList.remove('reveal', 'is-in'); el.style.removeProperty('--d'); }; // вернуть собственные transition (кнопки)
   const io = new IntersectionObserver((entries) => {
     let n = 0;
     entries.filter((e) => e.isIntersecting).forEach((e) => {
       const el = e.target;
       io.unobserve(el);
-      const delay = base(el) + Math.min(n++, 4) * 70;
+      const delay = base(el) + Math.min(n++, 4) * (el.closest('.hero') ? 90 : 70);
       el.style.setProperty('--d', delay + 'ms');
       requestAnimationFrame(() => el.classList.add('is-in'));
-      setTimeout(() => done(el), delay + 700);
+      setTimeout(() => done(el), delay + 900);
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
   list.forEach((el) => { el.classList.add('reveal'); io.observe(el); });
 }
 
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  initHeroWords();
-  initHeadingFill();
-  initReveal();
+if (document.documentElement.classList.contains('anim')) {
+  // Ждём шрифт (не дольше 500 мс), чтобы заголовок не менял размер уже во время анимации
+  const start = () => {
+    fitHeroTitle();
+    initHeroWords();
+    initHeadingFill();
+    initReveal();
+    document.documentElement.classList.add('anim-ready'); // снимает начальное скрытие первого экрана
+  };
+  const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.race([fontsReady, new Promise((r) => setTimeout(r, 500))]).then(start);
 }
-
