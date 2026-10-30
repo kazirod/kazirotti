@@ -1,0 +1,270 @@
+/* Токены из Figma: коллекция «taplink v2», шкала шрифтов kazirod DS на SF Pro Rounded */
+:root {
+  --bg-page: #F2F4F8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #E8EDF5;
+  --bg-dark: #161616;
+  --bg-dark-surface: #1E1E1E;
+  --bg-ink: #141414;
+
+  --text-primary: #141414;
+  --text-secondary: #4D5563;
+  --text-tertiary: #5F6775;
+  --text-on-dark: #F2F2F2;
+  --text-on-dark-secondary: #A6A6A6;
+  --text-on-ink: #FFFFFF;
+
+  --border-default: #DCE3EE;
+  --border-dark: #2E2E2E;
+  --accent-green: #29FC88;
+
+  --metro-butovo: #ACBFE1;
+  --metro-solntsevo: #FFDD2D;
+  --metro-strogino: #2459C1;
+  --metro-maryino: #B8E986;
+
+  --font: "SF Pro Rounded", ui-rounded, "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* отступы Telegram (выставляет telegram-web-app.js), вне Telegram — системные */
+  --safe-top: max(var(--tg-content-safe-area-inset-top, 0px) + var(--tg-safe-area-inset-top, 0px), env(safe-area-inset-top, 0px));
+  --safe-bottom: max(var(--tg-safe-area-inset-bottom, 0px), env(safe-area-inset-bottom, 0px));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+h1, h2, h3, p, ul, dl, dd, figure { margin: 0; padding: 0; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+[hidden] { display: none !important; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Типографика ---------- */
+.t-h1 { font-size: 40px; line-height: 48px; font-weight: 600; letter-spacing: -0.02em; }
+.t-h2 { font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -0.02em; }
+.t-h3 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.01em; }
+.t-h4 { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.t-body-l { font-size: 18px; line-height: 26px; }
+.t-body { font-size: 16px; line-height: 24px; }
+.t-body-s { font-size: 14px; line-height: 20px; }
+.t-caption { font-size: 12px; line-height: 16px; font-weight: 500; }
+.t-label { font-size: 14px; line-height: 20px; font-weight: 600; }
+.t-button { font-size: 18px; line-height: 24px; font-weight: 600; }
+
+.c-secondary { color: var(--text-secondary); }
+.c-tertiary { color: var(--text-tertiary); }
+.c-on-dark { color: var(--text-on-dark); }
+.c-on-dark-secondary { color: var(--text-on-dark-secondary); }
+.c-green { color: var(--accent-green); }
+
+.stack-4, .stack-6, .stack-8, .stack-12, .stack-16 { display: flex; flex-direction: column; }
+.stack-4 { gap: 4px; } .stack-6 { gap: 6px; } .stack-8 { gap: 8px; } .stack-12 { gap: 12px; } .stack-16 { gap: 16px; }
+
+/* ---------- Каркас ---------- */
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(24px + var(--safe-bottom));
+}
+.header { display: flex; align-items: center; gap: 8px; padding: 16px 16px 8px; }
+.logo {
+  background: var(--bg-ink); color: var(--text-on-ink);
+  border-radius: 999px; padding: 8px 14px;
+  font-size: 14px; line-height: 20px; font-weight: 600;
+}
+
+.section { display: flex; flex-direction: column; gap: 24px; padding: 48px 16px; }
+.section--dark { background: var(--bg-dark); border-radius: 32px; padding: 56px 16px; }
+.hero { padding: 24px 16px 32px; }
+.section--routes { padding: 56px 16px 48px; }
+.section--car { padding: 24px 16px 48px; }
+.section--first { gap: 20px; padding: 56px 16px 32px; }
+.section--prices { padding: 32px 16px 56px; }
+.section--reviews { gap: 20px; padding: 56px 0 48px 16px; }
+.section--tg { gap: 20px; padding: 56px 16px 32px; }
+.section--contacts { gap: 20px; padding: 32px 16px 56px; }
+.pad-r { padding-right: 16px; }
+
+/* ---------- Кнопки ---------- */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 60px; padding: 18px 24px;
+  border-radius: 20px;
+  background: var(--bg-ink); color: var(--text-on-ink);
+  font-size: 18px; line-height: 24px; font-weight: 600; text-align: center;
+  transition: transform 160ms var(--ease-out);
+  touch-action: manipulation;
+}
+.btn--light { background: var(--bg-page); color: var(--text-primary); }
+.btn--auto { flex: none; }
+.btn:active { transform: scale(0.97); }
+.btn:focus-visible, .messenger:focus-visible, .slider:focus-visible {
+  outline: 3px solid var(--accent-green); outline-offset: 3px;
+}
+.section--dark .btn:focus-visible { outline-color: var(--text-on-dark); }
+
+/* иконки 24px */
+.ic { width: 24px; height: 24px; flex: none; color: var(--bg-ink); }
+
+/* ---------- Первый экран ---------- */
+.cta-block { display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.instructor {
+  background: var(--bg-dark); border-radius: 24px; overflow: hidden;
+  display: flex; flex-direction: column; gap: 16px; padding-bottom: 20px;
+}
+.instructor img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.instructor figcaption { display: flex; flex-direction: column; gap: 4px; padding: 0 20px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.stat { background: var(--bg-surface); border-radius: 20px; padding: 16px 12px; display: flex; flex-direction: column; gap: 4px; }
+
+/* ---------- Навыки ---------- */
+.skill {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-surface); border-radius: 20px;
+  padding: 12px 12px 12px 20px;
+}
+.skill span { flex: 1; }
+.skill img { width: 72px; height: 72px; flex: none; }
+
+/* ---------- Помогу, если ---------- */
+.help-card {
+  background: var(--bg-dark-surface); border: 1px solid var(--border-dark);
+  border-radius: 20px; padding: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.help-card__title { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- Маршруты ---------- */
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tile { height: 112px; border-radius: 24px; padding: 16px; display: flex; align-items: flex-end; }
+.tile--butovo { background: var(--metro-butovo); }
+.tile--solntsevo { background: var(--metro-solntsevo); }
+.tile--strogino { background: var(--metro-strogino); color: var(--text-on-ink); }
+.tile--maryino { background: var(--metro-maryino); }
+.metro {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-surface); border-radius: 24px; padding: 16px 12px 16px 20px;
+}
+.metro > div { flex: 1; }
+.metro img { width: 72px; height: 72px; flex: none; }
+
+/* ---------- Машина ---------- */
+.car { background: var(--bg-surface); border-radius: 28px; padding: 24px 20px 20px; display: flex; flex-direction: column; gap: 20px; }
+.car__title { display: flex; flex-direction: column; }
+.car__img { width: 100%; height: auto; }
+.specs { display: flex; flex-direction: column; gap: 20px; }
+.specs__row { display: flex; }
+.spec { flex: 1; display: flex; flex-direction: column; gap: 2px; padding: 0 12px; }
+.spec:first-child { padding-left: 0; }
+.spec + .spec { border-left: 1px solid var(--border-default); }
+.car__photo { width: 100%; aspect-ratio: 321 / 187; object-fit: cover; border-radius: 12px; }
+.price-bar { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+.price-bar__price { flex: 1; display: flex; flex-direction: column; }
+
+/* ---------- На вашей машине ---------- */
+.route { background: var(--bg-dark-surface); border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.route__line { display: flex; align-items: center; gap: 12px; }
+.route__track { position: relative; flex: 1; height: 30px; display: flex; align-items: center; }
+.route__track::before { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--border-dark); }
+.route__done { position: absolute; left: 0; height: 2px; width: 50%; background: var(--accent-green); }
+.route__car { position: absolute; left: 50%; width: 44px; height: auto; transform: translateX(-50%); }
+.route__labels { display: flex; justify-content: space-between; }
+.own-row {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg-dark-surface); border-radius: 20px; padding: 18px 20px;
+}
+.own-row > :first-child { flex: 1; }
+.own-row--accent { background: var(--accent-green); color: var(--text-primary); }
+
+/* одна анимация на странице: машинка проезжает маршрут, когда блок появляется на экране */
+.route.will-animate:not(.is-animated) .route__done { width: 0; }
+.route.will-animate:not(.is-animated) .route__car { left: 0; transform: none; }
+.route.is-animated .route__done { animation: route-fill 1200ms var(--ease-in-out) both; }
+.route.is-animated .route__car { animation: route-drive 1200ms var(--ease-in-out) both; }
+@keyframes route-fill { from { width: 0; } to { width: 50%; } }
+@keyframes route-drive { from { left: 0; transform: translateX(0); } to { left: 50%; transform: translateX(-50%); } }
+
+/* ---------- Первое занятие ---------- */
+.first-card { display: flex; align-items: center; gap: 12px; background: var(--bg-surface); border-radius: 24px; padding: 20px 16px 20px 20px; }
+.first-card p { flex: 1; }
+.first-card img { width: 112px; height: 112px; flex: none; }
+.list { display: flex; flex-direction: column; gap: 12px; }
+.list li { display: flex; align-items: flex-start; gap: 12px; }
+.list--dark .ic { color: var(--accent-green); }
+.list--dark .t-body { color: var(--text-on-dark); }
+.price-line { display: flex; flex-direction: column; padding-top: 4px; }
+
+/* ---------- Пакеты ---------- */
+.included { background: var(--bg-surface); border-radius: 24px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.pack { background: var(--bg-surface); border-radius: 28px; padding-bottom: 20px; display: flex; flex-direction: column; gap: 20px; }
+.pack__top { display: flex; gap: 8px; padding: 20px; border-radius: 28px 28px 20px 20px; background: var(--bg-surface); }
+.pack__head { flex: 1; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.pack__price { display: flex; flex-direction: column; gap: 2px; }
+.pack__top img { width: 96px; height: 96px; flex: none; }
+.pack__body { display: flex; flex-direction: column; gap: 16px; padding: 0 20px; }
+.pack--dark { background: var(--bg-dark); }
+.pack--dark .pack__top { background: var(--bg-dark-surface); }
+.tag {
+  display: inline-flex; padding: 6px 12px; border-radius: 999px;
+  background: var(--accent-green); color: var(--text-primary);
+  font-size: 12px; line-height: 16px; font-weight: 500;
+}
+
+.value { display: flex; flex-direction: column; gap: 8px; padding-top: 24px; }
+.value > h2 { margin-bottom: 0; }
+.value__row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.value-tile { background: var(--bg-surface); border-radius: 24px; padding: 20px; display: flex; align-items: center; gap: 16px; }
+.value-tile > .stack-6 { flex: 1; align-self: flex-start; }
+.value-tile--dark { background: var(--bg-dark); }
+.value-tile--green { background: var(--accent-green); }
+.value-tile__avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex: none; }
+.value > .list { padding: 16px 4px 0; }
+
+/* ---------- Отзывы ---------- */
+.slider {
+  display: flex; gap: 8px; overflow-x: auto; padding-right: 16px;
+  scroll-snap-type: x mandatory; scroll-padding-left: 16px;
+  scrollbar-width: none;
+}
+.slider::-webkit-scrollbar { display: none; }
+.slider > li { flex: none; width: 240px; height: 320px; scroll-snap-align: start; }
+.review { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+.more { background: var(--bg-surface); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+.more__avatars { display: flex; }
+.more__avatars img { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--bg-surface); }
+.more__avatars img + img { margin-left: -12px; }
+
+/* ---------- Telegram-канал ---------- */
+.tg-card { background: var(--bg-surface); border-radius: 28px; overflow: hidden; padding-bottom: 20px; display: flex; flex-direction: column; gap: 16px; }
+.tg-card__posts { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.tg-card__posts img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+.tg-card__body { display: flex; flex-direction: column; gap: 12px; padding: 0 20px; }
+
+/* ---------- Контакты ---------- */
+.messengers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.messenger {
+  background: var(--bg-surface); border-radius: 24px; padding: 12px 12px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  transition: transform 160ms var(--ease-out);
+}
+.messenger:active { transform: scale(0.97); }
+.messenger img { width: 120px; height: 120px; }
+.signature { display: flex; align-items: center; gap: 12px; }
+.signature img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .messenger { transition: none; }
+  .route.is-animated .route__done, .route.is-animated .route__car { animation: none; }
+}

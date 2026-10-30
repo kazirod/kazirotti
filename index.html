@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Илья Казирод — автоинструктор в Москве</title>
+  <meta name="description" content="Частный автоинструктор в Москве: подготовка к экзамену на 4 экзаменационных маршрутах, восстановление навыков, учебная KIA Cerato с доп. педалью.">
+  <meta name="theme-color" content="#F2F4F8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- SF Pro Rounded есть на iOS/macOS (ui-rounded). На Android и Windows — похожий скруглённый Nunito -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<!-- Иконки (из Figma). Цвет берётся из currentColor -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check-dark" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#29FC88"/><path d="M7 12.5L10.2 15.7L17 9" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path fill="currentColor" d="M10.8719 3.04786C11.2559 1.99186 12.7439 1.99186 13.1279 3.04786L15.0479 8.23186C15.1679 8.56786 15.4319 8.83186 15.7679 8.95186L20.9519 10.8719C22.0079 11.2559 22.0079 12.7439 20.9519 13.1279L15.7679 15.0479C15.4319 15.1679 15.1679 15.4319 15.0479 15.7679L13.1279 20.9519C12.7439 22.0079 11.2559 22.0079 10.8719 20.9519L8.95186 15.7679C8.83186 15.4319 8.56786 15.1679 8.23186 15.0479L3.04786 13.1279C1.99186 12.7439 1.99186 11.2559 3.04786 10.8719L8.23186 8.95186C8.56786 8.83186 8.83186 8.56786 8.95186 8.23186L10.8719 3.04786Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M14.4346 7.19193C16.5379 5.08867 19.8142 4.87334 22.1576 6.54595C22.6071 6.8668 22.6033 7.50851 22.2128 7.89904L10.192 19.9199L5.94936 15.6772L14.4346 7.19193Z"/><path fill="currentColor" d="M1.70666 11.4345C1.31613 11.044 1.31233 10.4023 1.76186 10.0814C4.1053 8.40884 7.38157 8.62417 9.48483 10.7274L14.4346 15.6772L10.899 19.2127C10.5085 19.6032 9.87536 19.6032 9.48483 19.2127L1.70666 11.4345Z"/></symbol>
+  <symbol id="i-document" viewBox="0 0 24 24"><path fill="currentColor" d="M12.6783 19.9575C12.9531 20.0211 12.9783 20.3811 12.7107 20.4699L11.1303 20.9895C7.16074 22.2699 5.07034 21.1995 3.78034 17.2299L2.49994 13.2795C1.22074 9.30989 2.28034 7.20989 6.24994 5.92949L6.57154 5.82388C7.05514 5.66308 7.52914 6.15028 7.39834 6.64228C7.36234 6.78149 7.32633 6.92309 7.29034 7.06949L6.30994 11.2599C5.21074 15.9699 6.81994 18.5703 11.5299 19.6899L12.6783 19.9575Z"/><path fill="currentColor" d="M17.1699 3.2102L15.5007 2.8202C12.1599 2.0306 10.1703 2.681 9.00033 5.1002C8.70033 5.711 8.46033 6.4502 8.25993 7.301L7.28073 11.4902C6.30033 15.671 7.59033 17.7302 11.7603 18.7202L13.4403 19.121C14.0199 19.2602 14.5599 19.3502 15.0603 19.391C18.1803 19.691 19.8399 18.2306 20.6799 14.621L21.6603 10.4402C22.6407 6.2606 21.3603 4.1906 17.1699 3.2102ZM15.2907 13.331C15.2007 13.6706 14.9007 13.8902 14.5599 13.8902C14.4999 13.8902 14.4399 13.8806 14.3703 13.871L11.4603 13.1306C11.0607 13.031 10.8207 12.6206 10.9203 12.221C11.0199 11.8202 11.4303 11.5802 11.8299 11.681L14.7399 12.4202C15.1503 12.521 15.3903 12.9302 15.2907 13.331ZM18.2199 9.9506C18.1299 10.2902 17.8299 10.511 17.4903 10.511C17.4303 10.511 17.3703 10.5002 17.3007 10.4906L12.4503 9.2606C12.0507 9.161 11.8107 8.7506 11.9103 8.351C12.0099 7.9502 12.4203 7.7102 12.8199 7.811L17.6703 9.041C18.0807 9.131 18.3207 9.5402 18.2199 9.9506Z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M4.73077 4.84615L3 9C1.89543 9 1 9.89543 1 11V16C1 17.1046 1.89543 18 3 18H21C22.1046 18 23 17.1046 23 16V11C23 9.89543 22.1046 9 21 9L19.2692 4.84615C18.8034 3.72821 17.7111 3 16.5 3H7.5C6.2889 3 5.19658 3.72821 4.73077 4.84615ZM18.5 9L17.2433 5.64888C17.097 5.25857 16.7238 5 16.307 5H7.693C7.27616 5 6.90304 5.25857 6.75667 5.64888L5.5 9H18.5ZM3 12C3 13.1046 3.89543 14 5 14H9C7.89543 14 7 13.1046 7 12H3ZM21 12C21 13.1046 20.1046 14 19 14H15C16.1046 14 17 13.1046 17 12H21Z"/><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M19 18H21C22.1046 18 23 17.1046 23 16V20H19V18ZM1 16V20H5V18H3C1.89543 18 1 17.1046 1 16Z"/></symbol>
+  <symbol id="i-teacher" viewBox="0 0 24 24"><path fill="currentColor" d="M5.61917 16.4698C5.61917 15.6798 6.49923 15.2001 7.15921 15.6299L9.21976 16.9698C10.0097 17.4997 11.0099 17.7598 12.0098 17.7598C13.0097 17.7598 14.0099 17.4998 14.7998 16.9698L16.8291 15.6397C17.4991 15.1997 18.3799 15.6796 18.3799 16.4796V17.7696C18.3799 19.0396 17.3893 20.3999 16.1993 20.7999L13.0098 21.8594C12.4498 22.0494 11.5393 22.0494 10.9893 21.8594L7.79984 20.7999C6.59984 20.3999 5.61917 19.0396 5.61917 17.7696V16.4698Z"/><path fill="currentColor" d="M10.0498 2.52936C11.1298 1.81964 12.9094 1.81964 13.9893 2.52936L19.9795 6.46003C21.2392 7.28993 21.6497 8.78935 21.25 10.0792V15.0001C21.2498 15.4097 20.9097 15.7498 20.5 15.7501C20.0902 15.7501 19.7503 15.4099 19.75 15.0001V11.9395L13.9893 15.7198C12.9094 16.4296 11.1298 16.4296 10.0498 15.7198L5.62992 12.8399L4.02933 11.7999C2.0995 10.5399 2.09969 7.71013 4.02933 6.46003L10.0498 2.52936Z"/></symbol>
+  <symbol id="i-routing" viewBox="0 0 24 24"><path fill="currentColor" d="M8.88003 4.59973C8.08003 1.13973 2.87002 1.12973 2.07002 4.59973C1.60002 6.62973 2.89003 8.34973 4.01003 9.41973C4.83003 10.1897 6.12003 10.1897 6.94003 9.41973C8.06003 8.34973 9.34003 6.62973 8.88003 4.59973ZM5.51003 6.19973C4.96003 6.19973 4.51003 5.74973 4.51003 5.19973C4.51003 4.64973 4.95003 4.19973 5.50003 4.19973H5.51003C6.07003 4.19973 6.51003 4.64973 6.51003 5.19973C6.51003 5.74973 6.07003 6.19973 5.51003 6.19973Z"/><path fill="currentColor" d="M21.91 16.5997C21.11 13.1397 15.88 13.1297 15.07 16.5997C14.6 18.6297 15.89 20.3497 17.02 21.4197C17.84 22.1897 19.14 22.1897 19.96 21.4197C21.09 20.3497 22.38 18.6297 21.91 16.5997ZM18.53 18.1997C17.98 18.1997 17.53 17.7497 17.53 17.1997C17.53 16.6497 17.97 16.1997 18.52 16.1997H18.53C19.08 16.1997 19.53 16.6497 19.53 17.1997C19.53 17.7497 19.08 18.1997 18.53 18.1997Z"/><path fill="currentColor" d="M11.9995 19.75H9.31945C8.15945 19.75 7.14945 19.05 6.74945 17.97C6.33945 16.89 6.63945 15.7 7.50945 14.93L15.4995 7.94C15.9795 7.52 15.9895 6.95 15.8495 6.56C15.6995 6.17 15.3195 5.75 14.6795 5.75H11.9995C11.5895 5.75 11.2495 5.41 11.2495 5C11.2495 4.59 11.5895 4.25 11.9995 4.25H14.6795C15.8395 4.25 16.8495 4.95 17.2495 6.03C17.6595 7.11 17.3595 8.3 16.4895 9.07L8.49945 16.06C8.01945 16.48 8.00945 17.05 8.14945 17.44C8.29945 17.83 8.67945 18.25 9.31945 18.25H11.9995C12.4095 18.25 12.7495 18.59 12.7495 19C12.7495 19.41 12.4095 19.75 11.9995 19.75Z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 23C17.2467 23 21.5 18.7467 21.5 13.5C21.5 8.25329 17.2467 4 12 4C6.75329 4 2.5 8.25329 2.5 13.5C2.5 18.7467 6.75329 23 12 23ZM11 7.5H10.5L10.5 15L15.9763 17.5537L16.1876 17.1005C16.6544 16.0994 16.2213 14.9095 15.2202 14.4426L13 13.4073V9.5C13 8.39543 12.1046 7.5 11 7.5Z"/><path fill="currentColor" d="M7 1H17V1.5C17 2.88071 15.8807 4 14.5 4H7V1Z"/></symbol>
+  <symbol id="i-moneys" viewBox="0 0 24 24"><path fill="currentColor" d="M19.17 6.63953C18.74 4.46953 17.13 3.51953 14.89 3.51953H6.10996C3.46996 3.51953 1.70996 4.83953 1.70996 7.91953V13.0695C1.70996 15.2895 2.61996 16.5895 4.11996 17.1495C4.33996 17.2295 4.57996 17.2995 4.82996 17.3395C5.22996 17.4295 5.65996 17.4695 6.10996 17.4695H14.9C17.54 17.4695 19.3 16.1495 19.3 13.0695V7.91953C19.3 7.44953 19.26 7.02953 19.17 6.63953ZM5.52996 11.9995C5.52996 12.4095 5.18996 12.7495 4.77996 12.7495C4.36996 12.7495 4.02996 12.4095 4.02996 11.9995V8.99953C4.02996 8.58953 4.36996 8.24953 4.77996 8.24953C5.18996 8.24953 5.52996 8.58953 5.52996 8.99953V11.9995ZM10.5 13.1395C9.03996 13.1395 7.85996 11.9595 7.85996 10.4995C7.85996 9.03953 9.03996 7.85953 10.5 7.85953C11.96 7.85953 13.14 9.03953 13.14 10.4995C13.14 11.9595 11.96 13.1395 10.5 13.1395ZM16.96 11.9995C16.96 12.4095 16.62 12.7495 16.21 12.7495C15.8 12.7495 15.46 12.4095 15.46 11.9995V8.99953C15.46 8.58953 15.8 8.24953 16.21 8.24953C16.62 8.24953 16.96 8.58953 16.96 8.99953V11.9995Z"/><path fill="currentColor" d="M22.2998 10.9203V16.0703C22.2998 19.1503 20.5398 20.4803 17.8898 20.4803H9.10977C8.35977 20.4803 7.68977 20.3703 7.10977 20.1503C6.63977 19.9803 6.22977 19.7303 5.89977 19.4103C5.71977 19.2403 5.85977 18.9703 6.10977 18.9703H14.8898C18.5898 18.9703 20.7898 16.7703 20.7898 13.0803V7.92028C20.7898 7.68028 21.0598 7.53028 21.2298 7.71028C21.9098 8.43028 22.2998 9.48028 22.2998 10.9203Z"/></symbol>
+  <symbol id="i-discount" viewBox="0 0 24 24"><path fill="currentColor" d="M21.3 10.8404C21.69 10.8404 22 10.5304 22 10.1404V9.21035C22 5.11035 20.75 3.86035 16.65 3.86035H7.35C3.25 3.86035 2 5.11035 2 9.21035V9.68035C2 10.0704 2.31 10.3804 2.7 10.3804C3.6 10.3804 4.33 11.1104 4.33 12.0104C4.33 12.9104 3.6 13.6304 2.7 13.6304C2.31 13.6304 2 13.9404 2 14.3304V14.8004C2 18.9004 3.25 20.1504 7.35 20.1504H16.65C20.75 20.1504 22 18.9004 22 14.8004C22 14.4104 21.69 14.1004 21.3 14.1004C20.4 14.1004 19.67 13.3704 19.67 12.4704C19.67 11.5704 20.4 10.8404 21.3 10.8404ZM9 8.88035C9.55 8.88035 10 9.33035 10 9.88035C10 10.4304 9.56 10.8804 9 10.8804C8.45 10.8804 8 10.4304 8 9.88035C8 9.33035 8.44 8.88035 9 8.88035ZM15 15.8804C14.44 15.8804 13.99 15.4304 13.99 14.8804C13.99 14.3304 14.44 13.8804 14.99 13.8804C15.54 13.8804 15.99 14.3304 15.99 14.8804C15.99 15.4304 15.56 15.8804 15 15.8804ZM15.9 9.48035L9.17 16.2104C9.02 16.3604 8.83 16.4304 8.64 16.4304C8.45 16.4304 8.26 16.3604 8.11 16.2104C7.82 15.9204 7.82 15.4404 8.11 15.1504L14.84 8.42035C15.13 8.13035 15.61 8.13035 15.9 8.42035C16.19 8.71035 16.19 9.19035 15.9 9.48035Z"/></symbol>
+  <symbol id="i-clock-circle" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM11 5V13H17V12.5C17 11.6716 16.3284 11 15.5 11H13.5C13.2239 11 13 10.7761 13 10.5V6.5C13 5.67157 12.3284 5 11.5 5H11Z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C9.38 2 7.25 4.13 7.25 6.75C7.25 9.32 9.26 11.4 11.88 11.49C11.96 11.48 12.04 11.48 12.1 11.49H12.17C14.73 11.4 16.74 9.32 16.75 6.75C16.75 4.13 14.62 2 12 2Z"/><path fill="currentColor" d="M17.08 14.1499C14.29 12.2899 9.73996 12.2899 6.92996 14.1499C5.65996 14.9999 4.95996 16.1499 4.95996 17.3799C4.95996 18.6099 5.65996 19.7499 6.91996 20.5899C8.31996 21.5299 10.16 21.9999 12 21.9999C13.84 21.9999 15.68 21.5299 17.08 20.5899C18.34 19.7399 19.04 18.5999 19.04 17.3599C19.03 16.1299 18.34 14.9899 17.08 14.1499Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M18.5398 4.11984L13.0398 2.05984C12.4698 1.84984 11.5398 1.84984 10.9698 2.05984L5.4698 4.11984C4.4098 4.51984 3.5498 5.75984 3.5498 6.88984V14.9898C3.5498 15.7998 4.0798 16.8698 4.7298 17.3498L10.2298 21.4598C11.1998 22.1898 12.7898 22.1898 13.7598 21.4598L19.2598 17.3498C19.9098 16.8598 20.4398 15.7998 20.4398 14.9898V6.88984C20.4498 5.75984 19.5898 4.51984 18.5398 4.11984ZM15.4798 9.71984L11.1798 14.0198C11.0298 14.1698 10.8398 14.2398 10.6498 14.2398C10.4598 14.2398 10.2698 14.1698 10.1198 14.0198L8.5198 12.3998C8.2298 12.1098 8.2298 11.6298 8.5198 11.3398C8.8098 11.0498 9.2898 11.0498 9.5798 11.3398L10.6598 12.4198L14.4298 8.64984C14.7198 8.35984 15.1998 8.35984 15.4898 8.64984C15.7798 8.93984 15.7798 9.42984 15.4798 9.71984Z"/></symbol>
+</svg>
+
+<main class="page">
+
+  <!-- Шапка -->
+  <header class="header">
+    <span class="logo">Казиротти</span>
+    <span class="t-body-s c-secondary">рулит 🤘🏼</span>
+  </header>
+
+  <!-- Первый экран -->
+  <section class="section hero" aria-labelledby="hero-title">
+    <div class="stack-16">
+      <h1 id="hero-title" class="t-h1">Готовлю к сдаче на права — спокойно и эффективно</h1>
+      <p class="t-body-l c-secondary">Для учеников автошкол и водителей с правами: город, парковка, экзаменационный маршрут, разбор дорожных ситуаций</p>
+    </div>
+    <div class="cta-block">
+      <a class="btn" href="#" data-book="first">Записаться на первое занятие</a>
+      <p class="t-body-s c-secondary">90 минут · 3 900 ₽</p>
+    </div>
+    <figure class="instructor">
+      <img src="assets/img/photo-ilya.webp" width="722" height="722" alt="Илья Казирод у учебного автомобиля" fetchpriority="high">
+      <figcaption>
+        <span class="t-h3 c-on-dark">Илья Казирод</span>
+        <span class="t-body-s c-on-dark-secondary">Сертифицированный автоинструктор</span>
+      </figcaption>
+    </figure>
+    <ul class="stats" role="list">
+      <li class="stat"><span class="t-h3">7+</span><span class="t-body-s c-secondary">лет преподаю</span></li>
+      <li class="stat"><span class="t-h3">30</span><span class="t-body-s c-secondary">лет за рулём</span></li>
+      <li class="stat"><span class="t-h3">750+</span><span class="t-body-s c-secondary">учеников</span></li>
+    </ul>
+  </section>
+
+  <!-- Чему научитесь -->
+  <section class="section" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="t-h2">Чему научитесь на занятиях</h2>
+    <ul class="stack-8" role="list">
+      <li class="skill"><span class="t-body-l">Правилам и логике городского движения</span><img src="assets/img/skill-1.webp" width="72" height="72" alt=""></li>
+      <li class="skill"><span class="t-body-l">Парковаться в ограниченном пространстве</span><img src="assets/img/skill-2.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Водить в плохую и скользкую погоду</span><img src="assets/img/skill-3.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Предвидеть и предотвращать аварийные ситуации</span><img src="assets/img/skill-4.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Уверенно маневрировать в плотном потоке</span><img src="assets/img/skill-5.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Проезжать перекрёстки с круговым движением</span><img src="assets/img/skill-6.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Ездить по сложным перекрёсткам и развязкам</span><img src="assets/img/skill-7.webp" width="72" height="72" alt="" loading="lazy"></li>
+      <li class="skill"><span class="t-body-l">Проезжать перекрёстки с трамвайными путями</span><img src="assets/img/skill-8.webp" width="72" height="72" alt="" loading="lazy"></li>
+    </ul>
+  </section>
+
+  <!-- Помогу, если -->
+  <section class="section section--dark" aria-labelledby="help-title">
+    <h2 id="help-title" class="t-h2 c-on-dark">Помогу, если вы…</h2>
+    <ul class="stack-8" role="list">
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Не знаете, с чего начать</p><p class="t-body c-on-dark-secondary">Объясню, как устроена подготовка и экзамен в ГИБДД</p></li>
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Не чувствуете уверенности</p><p class="t-body c-on-dark-secondary">Добавим практики там, где страшнее всего</p></li>
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Хотите ездить безопасно</p><p class="t-body c-on-dark-secondary">Научимся спокойно водить в городе и на трассе</p></li>
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Давно не садились за руль</p><p class="t-body c-on-dark-secondary">Освежим навыки и ПДД после перерыва</p></li>
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Устали от крика в машине</p><p class="t-body c-on-dark-secondary">Спокойно и понятно объясню каждое действие</p></li>
+      <li class="help-card"><p class="help-card__title t-h4 c-on-dark"><svg class="ic" aria-hidden="true"><use href="#i-check-dark"/></svg>Боитесь не сдать экзамен</p><p class="t-body c-on-dark-secondary">Отработаем экзаменационный маршрут и типичные ошибки</p></li>
+    </ul>
+  </section>
+
+  <!-- Маршруты -->
+  <section class="section section--routes" aria-labelledby="routes-title">
+    <div class="stack-12">
+      <h2 id="routes-title" class="t-h2">Проведу занятия на экзаменационных маршрутах</h2>
+      <p class="t-body c-secondary">Отработаем повороты, перекрёстки, светофоры и развороты по регламенту ГИБДД на 4 экзаменационных маршрутах</p>
+    </div>
+    <ul class="tiles" role="list">
+      <li class="tile tile--butovo"><span class="t-h3">Бутово</span></li>
+      <li class="tile tile--solntsevo"><span class="t-h3">Солнцево</span></li>
+      <li class="tile tile--strogino"><span class="t-h3">Строгино</span></li>
+      <li class="tile tile--maryino"><span class="t-h3">Марьино</span></li>
+    </ul>
+    <div class="metro">
+      <div class="stack-4">
+        <span class="t-caption c-secondary">Где начинаем</span>
+        <span class="t-h4">Основные занятия — у метро Академическая</span>
+      </div>
+      <img src="assets/img/metro.webp" width="72" height="72" alt="" loading="lazy">
+    </div>
+    <p class="t-body c-secondary">Все остальные точки начала занятий – по договоренности</p>
+  </section>
+
+  <!-- Машина -->
+  <section class="section section--car" aria-labelledby="car-title">
+    <article class="car">
+      <h2 id="car-title" class="car__title t-h1">KIA Cerato<span class="c-tertiary">2021 · учебная</span></h2>
+      <img class="car__img" src="assets/img/car-main.webp" width="963" height="642" alt="Белая KIA Cerato с учебной шашкой на крыше" loading="lazy">
+      <dl class="specs">
+        <div class="specs__row">
+          <div class="spec"><dt class="t-caption c-tertiary">коробка</dt><dd class="t-h4">АКПП</dd></div>
+          <div class="spec"><dt class="t-caption c-tertiary">дополнительные</dt><dd class="t-h4">Зеркала</dd></div>
+        </div>
+        <div class="specs__row">
+          <div class="spec"><dt class="t-caption c-tertiary">педали</dt><dd class="t-h4">Двойные</dd></div>
+          <div class="spec"><dt class="t-caption c-tertiary">привод</dt><dd class="t-h4">Передний</dd></div>
+        </div>
+        <div class="specs__row">
+          <div class="spec"><dt class="t-caption c-tertiary">Инструктор</dt><dd class="t-h4">Спокойный и шарит в этой теме 🤘🏼</dd></div>
+        </div>
+      </dl>
+      <img class="car__photo" src="assets/img/car-interior.webp" width="642" height="374" alt="Салон учебной KIA Cerato" loading="lazy">
+      <div class="price-bar">
+        <div class="price-bar__price"><span class="t-h2">3 900 ₽</span><span class="t-body-s c-secondary">за 90 минут</span></div>
+        <a class="btn btn--auto" href="#" data-book="car">Записаться</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- На вашей машине -->
+  <section class="section section--dark" aria-labelledby="own-title">
+    <div class="stack-12">
+      <h2 id="own-title" class="t-h2 c-on-dark">Проведу занятие на вашем автомобиле</h2>
+      <p class="t-body c-on-dark-secondary">Если у вас уже есть права — можем заниматься на вашем автомобиле и по вашему маршруту</p>
+    </div>
+    <div class="route" aria-label="Маршрут от дома до работы">
+      <div class="route__line" aria-hidden="true">
+        <span class="t-h3 c-green">А</span>
+        <span class="route__track"><span class="route__done"></span><img class="route__car" src="assets/img/car-main.webp" width="44" height="30" alt=""></span>
+        <span class="t-h3 c-on-dark-secondary">Б</span>
+      </div>
+      <div class="route__labels"><span class="t-label c-on-dark">Дом</span><span class="t-label c-on-dark">Работа</span></div>
+    </div>
+    <div class="stack-8">
+      <div class="own-row own-row--accent"><span class="t-h4">Ваш маршрут</span><span class="t-body">дом — работа — дом</span></div>
+      <div class="own-row"><span class="t-h4 c-on-dark">На вашей машине</span><span class="t-body c-on-dark-secondary">при наличии прав</span></div>
+    </div>
+    <p class="t-body-s c-on-dark-secondary">Цена за занятие на своем авто ниже, но по предварительной договоренности</p>
+  </section>
+
+  <!-- Первое занятие -->
+  <section class="section section--first" aria-labelledby="first-title">
+    <h2 id="first-title" class="t-h2">Первое занятие — оценка навыков</h2>
+    <div class="first-card">
+      <p class="t-body c-secondary">Это не просто катание: смотрим, как вы водите, находим точки роста и составляем план. Вы сразу понимаете, сколько занятий нужно именно вам</p>
+      <img src="assets/img/first-lesson.webp" width="125" height="125" alt="" loading="lazy">
+    </div>
+    <ul class="list" role="list">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg><span class="t-body">Знакомимся и убираем страх</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="t-body">Тестируем навыки на дороге</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-document"/></svg><span class="t-body">Составляем план занятий</span></li>
+    </ul>
+    <div class="price-line"><span class="t-h2">3 900 ₽</span><span class="t-body-s c-secondary">90 минут · 2 академических часа</span></div>
+    <a class="btn" href="#" data-book="first">Записаться на первое занятие</a>
+  </section>
+
+  <!-- Пакеты -->
+  <section class="section section--prices" aria-labelledby="prices-title">
+    <div class="stack-12">
+      <h2 id="prices-title" class="t-h2">Пакеты занятий</h2>
+      <p class="t-body c-secondary">Занятие — 90 минут (2 академических часа), 3 900 ₽. В пакете занятие дешевле, цена фиксируется на весь пакет</p>
+    </div>
+
+    <div class="included">
+      <p class="t-label c-secondary">Уже в цене любого занятия</p>
+      <ul class="list" role="list">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg><span class="t-body">Бензин и учебная KIA Cerato</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-teacher"/></svg><span class="t-body">Разбор ошибок во время<br>и после занятий</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-routing"/></svg><span class="t-body">Один из 4 экзаменационных маршрутов</span></li>
+      </ul>
+    </div>
+
+    <article class="pack">
+      <div class="pack__top">
+        <div class="pack__head">
+          <h3 class="t-h4">Вспомнить навыки</h3>
+          <p class="pack__price"><span class="t-h1">7 500 ₽</span><span class="t-body-s c-tertiary">2 занятия · 3 часа</span></p>
+        </div>
+        <img src="assets/img/pack-refresh.webp" width="96" height="96" alt="" loading="lazy">
+      </div>
+      <div class="pack__body">
+        <p class="t-body c-secondary">Уже есть права, но был перерыв в вождении</p>
+        <ul class="list" role="list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="t-body">2 занятия по 90 минут</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-moneys"/></svg><span class="t-body">3 750 ₽ за занятие</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-discount"/></svg><span class="t-body">Экономия 300 ₽</span></li>
+        </ul>
+        <a class="btn" href="#" data-pack="Вспомнить навыки" data-count="2">Записаться на 2 занятия</a>
+      </div>
+    </article>
+
+    <article class="pack pack--dark">
+      <div class="pack__top">
+        <div class="pack__head">
+          <span class="tag">Чаще всего берут</span>
+          <h3 class="t-h4 c-on-dark">Перед экзаменом</h3>
+          <p class="pack__price"><span class="t-h1 c-on-dark">14 600 ₽</span><span class="t-body-s c-on-dark-secondary">4 занятия · 6 часов</span></p>
+        </div>
+        <img src="assets/img/pack-exam.webp" width="96" height="96" alt="" loading="lazy">
+      </div>
+      <div class="pack__body">
+        <p class="t-body c-on-dark-secondary">Для тех кто учится в автошколе и скоро экзамен или уже был опыт сдачи</p>
+        <ul class="list list--dark" role="list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="t-body">4 занятия по 90 минут</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-moneys"/></svg><span class="t-body">3 650 ₽ за занятие</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-discount"/></svg><span class="t-body">Экономия 1000 ₽</span></li>
+        </ul>
+        <a class="btn btn--light" href="#" data-pack="Перед экзаменом" data-count="4">Записаться на 4 занятия</a>
+      </div>
+    </article>
+
+    <article class="pack">
+      <div class="pack__top">
+        <div class="pack__head">
+          <h3 class="t-h4">Уверенный водитель</h3>
+          <p class="pack__price"><span class="t-h1">21 400 ₽</span><span class="t-body-s c-tertiary">6 занятий · 9 часов</span></p>
+        </div>
+        <img src="assets/img/pack-confident.webp" width="96" height="96" alt="" loading="lazy">
+      </div>
+      <div class="pack__body">
+        <p class="t-body c-secondary">Права есть, а ездить пока страшно: отработаем город, виды парковок или свой маршрут</p>
+        <ul class="list" role="list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="t-body">6 занятий по 90 минут</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-moneys"/></svg><span class="t-body">3 550 ₽ за занятие</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-discount"/></svg><span class="t-body">Экономия 2 000 ₽</span></li>
+        </ul>
+        <a class="btn" href="#" data-pack="Уверенный водитель" data-count="6">Записаться на 6 занятий</a>
+      </div>
+    </article>
+
+    <article class="pack">
+      <div class="pack__top">
+        <div class="pack__head">
+          <h3 class="t-h4">Максимум практики</h3>
+          <p class="pack__price"><span class="t-h1">35 000 ₽</span><span class="t-body-s c-tertiary">10 занятий · 15 часов</span></p>
+        </div>
+        <img src="assets/img/pack-max.webp" width="96" height="96" alt="" loading="lazy">
+      </div>
+      <div class="pack__body">
+        <p class="t-body c-secondary">Подойдет для тех кто учится в автошколе и хочет больше практики, или есть права, а опыта нет</p>
+        <ul class="list" role="list">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="t-body">10 занятий по 90 минут</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-moneys"/></svg><span class="t-body">3 500 ₽ за занятие</span></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-discount"/></svg><span class="t-body">Экономия 4 000 ₽</span></li>
+        </ul>
+        <a class="btn" href="#" data-pack="Максимум практики" data-count="10">Записаться на 10 занятий</a>
+      </div>
+    </article>
+
+    <div class="value">
+      <h2 class="t-h3">За что вы платите</h2>
+      <div class="value-tile value-tile--dark">
+        <div class="stack-6">
+          <p class="t-h4 c-on-dark">Один инструктор от первого занятия до экзамена</p>
+          <p class="t-body-s c-on-dark-secondary">7+ лет преподаю, 30 лет за рулём</p>
+        </div>
+        <img class="value-tile__avatar" src="assets/img/avatar-ilya.webp" width="56" height="56" alt="" loading="lazy">
+      </div>
+      <div class="value__row">
+        <div class="value-tile"><div class="stack-6"><p class="t-h4">4 маршрута</p><p class="t-body-s c-secondary">экзаменационных: Бутово, Солнцево, Строгино, Марьино</p></div></div>
+        <div class="value-tile"><div class="stack-6"><p class="t-h4">Свой план</p><p class="t-body-s c-secondary">после первого занятия знаете, сколько занятий нужно</p></div></div>
+      </div>
+      <div class="value-tile"><div class="stack-6"><p class="t-h4">Укрепляем теоретические знания</p><p class="t-body-s c-secondary">Станете в разы лучше понимать дорожную ситуацию и правила дорожного движения</p></div></div>
+      <div class="value-tile value-tile--green"><div class="stack-6"><p class="t-h4">Спокойно и без криков</p><p class="t-body-s">объясняю каждое действие, без оценок</p></div></div>
+      <ul class="list" role="list">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-clock-circle"/></svg><span class="t-body">Перенос бесплатно, если предупредить за день до занятия</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="section section--reviews" aria-labelledby="reviews-title">
+    <div class="stack-8 pad-r">
+      <h2 id="reviews-title" class="t-h2">Отзывы учеников</h2>
+      <p class="t-body c-secondary">Опыт тех, кто уже прошёл обучение и уверенно водит</p>
+    </div>
+    <ul class="slider" role="list" tabindex="0" aria-label="Отзывы, листаются вбок">
+      <li><img class="review" src="assets/img/review-1.webp" width="720" height="960" alt="Отзыв Андрея: благодарит за занятия, объяснение нюансов дорожного движения, парковку и помощь со сдачей экзамена" loading="lazy"></li>
+      <li class="more">
+        <div class="more__avatars" aria-hidden="true">
+          <img src="assets/img/rev-av-1.webp" width="48" height="48" alt="" loading="lazy">
+          <img src="assets/img/rev-av-2.webp" width="48" height="48" alt="" loading="lazy">
+          <img src="assets/img/rev-av-3.webp" width="48" height="48" alt="" loading="lazy">
+          <img src="assets/img/rev-av-4.webp" width="48" height="48" alt="" loading="lazy">
+        </div>
+        <div class="stack-12">
+          <p class="t-h3">Больше отзывов</p>
+          <a class="btn" href="#" data-link="reviews">Все отзывы</a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Финальный призыв -->
+  <section class="section section--dark" aria-labelledby="cta-title">
+    <h2 id="cta-title" class="t-h2 c-on-dark">Начните путь к уверенной езде уже сегодня</h2>
+    <ul class="list list--dark" role="list">
+      <li><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span class="t-body">Один инструктор от первого занятия до экзамена</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-car"/></svg><span class="t-body">Учебная машина с доп. педалью</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-routing"/></svg><span class="t-body">Экзаменационные маршруты и реальная практика в городе</span></li>
+      <li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span class="t-body">Спокойно и без крика</span></li>
+    </ul>
+    <p class="t-body c-on-dark-secondary">Чем раньше начнёте практику, тем быстрее уйдёт страх и придёт свобода за рулём</p>
+    <a class="btn btn--light" href="#" data-book="first">Записаться на первое занятие</a>
+  </section>
+
+  <!-- Telegram-канал -->
+  <section class="section section--tg" aria-labelledby="tg-title">
+    <h2 id="tg-title" class="t-h2">Мой Telegram-канал</h2>
+    <div class="tg-card">
+      <div class="tg-card__posts">
+        <img src="assets/img/tg-post-1.webp" width="539" height="720" alt="Пост канала: отрабатываем правый поворот на нерегулируемом перекрёстке" loading="lazy">
+        <img src="assets/img/tg-post-2.webp" width="539" height="720" alt="Пост канала: что делать, если на пути возникло препятствие" loading="lazy">
+      </div>
+      <div class="tg-card__body">
+        <p class="t-body c-secondary">Разбираю реальные ситуации на дорогах и типичные ошибки учеников. Подписывайтесь, если хотите понимать вождение, а не просто сдать экзамен</p>
+        <a class="btn" href="#" data-link="channel">Перейти в канал</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="section section--contacts" aria-labelledby="contacts-title">
+    <div class="stack-8">
+      <h2 id="contacts-title" class="t-h2">Остались вопросы?</h2>
+      <p class="t-body c-secondary">Пишите напрямую — отвечаю максимально оперативно</p>
+    </div>
+    <div class="messengers">
+      <a class="messenger" href="#" data-contact="tg"><img src="assets/img/icon-telegram.webp" width="120" height="120" alt="" loading="lazy"><span class="t-button">Telegram</span></a>
+      <a class="messenger" href="#" data-contact="wa"><img src="assets/img/icon-whatsapp.webp" width="120" height="120" alt="" loading="lazy"><span class="t-button">WhatsApp</span></a>
+    </div>
+    <div class="signature">
+      <img src="assets/img/avatar-ilya.webp" width="56" height="56" alt="" loading="lazy">
+      <div><p class="t-h4">Илья Казирод</p><p class="t-body-s c-secondary">Сертифицированный автоинструктор</p></div>
+    </div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
