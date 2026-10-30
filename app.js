@@ -111,3 +111,117 @@ function fitHeroTitle() {
 fitHeroTitle();
 window.addEventListener('resize', fitHeroTitle);
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeroTitle);
+
+// ---------- Движение: заголовки и появление блоков ----------
+// Всё выключено при prefers-reduced-motion — тогда заголовки и блоки сразу видны.
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+// Делит текст на слова-спаны. Делим только по обычному пробелу: неразрывные пробелы остаются внутри слова.
+function splitWords(root, { direct = false, cls = 'w' } = {}) {
+  const nodes = [];
+  if (direct) root.childNodes.forEach((n) => { if (n.nodeType === 3) nodes.push(n); });
+  else {
+    const tw = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (tw.nextNode()) nodes.push(tw.currentNode);
+  }
+  const words = [];
+  nodes.forEach((node) => {
+    const frag = document.createDocumentFragment();
+    node.nodeValue.split(/([ \n\t]+)/).forEach((part) => {
+      if (!part) return;
+      if (/^[ \n\t]+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+      const s = document.createElement('span');
+      s.className = cls;
+      s.textContent = part;
+      frag.appendChild(s);
+      words.push(s);
+    });
+    node.replaceWith(frag);
+  });
+  return words;
+}
+
+// 1) Главный заголовок: слова появляются по очереди при загрузке
+function initHeroWords() {
+  if (!heroTitle) return;
+  splitWords(heroTitle, { cls: 'w w--in' }).forEach((w, i) => w.style.setProperty('--i', i));
+}
+
+// 2) Заголовки секций: слова темнеют волной при прокрутке, при прокрутке вверх идут обратно
+function initHeadingFill() {
+  const hex = (v) => {
+    const m = /^#?([0-9a-f]{6})$/i.exec(v.trim());
+    return m ? [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16)) : null;
+  };
+  const items = [...document.querySelectorAll('section:not(.hero) h2')].map((h) => {
+    const cs = getComputedStyle(h);
+    const from = hex(cs.getPropertyValue('--fill-from'));
+    const to = hex(cs.getPropertyValue('--fill-to'));
+    const words = splitWords(h, { direct: true }); // подпись внутри вложенного <span> (KIA Cerato) не трогаем
+    return from && to && words.length ? { h, words, from, to, last: [] } : null;
+  }).filter(Boolean);
+
+  const SOFT = 2; // сколько слов красятся одновременно
+  let queued = false;
+  function update() {
+    queued = false;
+    const vh = window.innerHeight;
+    const start = vh * 0.92, end = vh * 0.5; // заливка идёт, пока заголовок поднимается от 92% до 50% высоты экрана
+    const atEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 4;
+    items.forEach((it) => {
+      const top = it.h.getBoundingClientRect().top;
+      const p = atEnd && top < vh * 0.92 ? 1 : clamp((start - top) / (start - end), 0, 1);
+      const pos = p * (it.words.length + SOFT);
+      it.words.forEach((w, i) => {
+        const f = clamp((pos - i) / SOFT, 0, 1);
+        const col = 'rgb(' + it.from.map((c, k) => Math.round(c + (it.to[k] - c) * f)).join(',') + ')';
+        if (it.last[i] !== col) { w.style.color = col; it.last[i] = col; }
+      });
+    });
+  }
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  update();
+}
+
+// 3) Блоки под заголовками плавно проявляются снизу (один раз)
+function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+  const targets = new Set();
+  document.querySelectorAll('section h1, section h2').forEach((h) => {
+    let node = h;
+    while (node && node.parentElement) {
+      for (let s = node.nextElementSibling; s; s = s.nextElementSibling) targets.add(s);
+      if (node.parentElement.tagName === 'SECTION') break;
+      node = node.parentElement;
+    }
+  });
+  const list = [];
+  targets.forEach((el) => {
+    if (el.hidden || el.tagName === 'SCRIPT') return;
+    if (el.tagName === 'UL' && el.getAttribute('role') === 'list') list.push(...el.children); // карточки списка — по одной
+    else list.push(el);
+  });
+  const base = (el) => (el.closest('.hero') ? 300 : 0); // на первом экране ждём слова заголовка
+  const done = (el) => { el.classList.remove('reveal', 'is-in'); el.style.removeProperty('--d'); }; // вернуть собственные transition (кнопки)
+  const io = new IntersectionObserver((entries) => {
+    let n = 0;
+    entries.filter((e) => e.isIntersecting).forEach((e) => {
+      const el = e.target;
+      io.unobserve(el);
+      const delay = base(el) + Math.min(n++, 4) * 70;
+      el.style.setProperty('--d', delay + 'ms');
+      requestAnimationFrame(() => el.classList.add('is-in'));
+      setTimeout(() => done(el), delay + 700);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  list.forEach((el) => { el.classList.add('reveal'); io.observe(el); });
+}
+
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  initHeroWords();
+  initHeadingFill();
+  initReveal();
+}
+

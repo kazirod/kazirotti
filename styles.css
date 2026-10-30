@@ -27,6 +27,10 @@
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
+  /* Заливка заголовков при прокрутке: от светлого к основному цвету */
+  --fill-from: #A3ACBB;
+  --fill-to: var(--text-primary);
+
   /* отступы Telegram (выставляет telegram-web-app.js), вне Telegram — системные */
   --safe-top: max(var(--tg-content-safe-area-inset-top, 0px) + var(--tg-safe-area-inset-top, 0px), env(safe-area-inset-top, 0px));
   --safe-bottom: max(var(--tg-safe-area-inset-bottom, 0px), env(safe-area-inset-bottom, 0px));
@@ -86,10 +90,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .section { display: flex; flex-direction: column; gap: 24px; padding: 48px 16px; }
-.section--dark { background: var(--bg-dark); border-radius: 32px; padding: 56px 16px; }
+.section--dark { background: var(--bg-dark); border-radius: 32px; padding: 56px 16px; --fill-from: #5C5C5C; --fill-to: var(--text-on-dark); }
 .hero { padding: 24px 16px 32px; }
 /* Заголовок всегда в три строки */
-.hero__title span { display: block; white-space: nowrap; }
+.hero__title > span { display: block; white-space: nowrap; }
 .section--routes { padding: 56px 16px 48px; }
 .section--car { padding: 24px 16px 48px; }
 .section--first { gap: 20px; padding: 56px 16px 32px; }
@@ -270,3 +274,9 @@ a { color: inherit; text-decoration: none; }
   .btn, .messenger { transition: none; }
   .route.is-animated .route__done, .route.is-animated .route__car { animation: none; }
 }
+
+/* ---------- Появление заголовка и блоков (включает app.js; при reduced-motion не включается) ---------- */
+.w--in { display: inline-block; animation: word-in 560ms var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 80ms); }
+@keyframes word-in { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 400ms var(--ease-out), transform 400ms var(--ease-out); transition-delay: var(--d, 0ms); }
+.reveal.is-in { opacity: 1; transform: none; }
